@@ -1,1 +1,1 @@
-# [KB Home](https://github.com/luizcarlosfaria/kb/wiki/)
+# [Wiki](https://github.com/luizcarlosfaria/kb/wiki/)
