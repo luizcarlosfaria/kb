@@ -241,6 +241,8 @@ Todas as dependências Rust são legítimas e amplamente usadas:
 - `git2` — bindings para libgit2
 - `tree-sitter` + grammars — parsing de código
 - `serde` / `serde_json` / `serde_yaml` — serialização
+- `zmij` — dependência transitiva de `serde_json`, mantida por dtolnay (autor do serde). Sucessor do crate `ryu` para conversão float-to-string. 18M+ downloads/mês. **Legítimo.**
+- `unsafe-libyaml` — port oficial do C libyaml para Rust, mantido pelo time do serde. **Legítimo.**
 - `toml`, `xxhash-rust`, `regex`, `thiserror`, `rayon` — todas legítimas
 
 ### Configurações de Build
@@ -283,4 +285,4 @@ O projeto contém **2 vulnerabilidades críticas** e **3 altas** que poderiam se
 2. Adicionar `PRAGMA query_only = ON` ao comando `query`
 3. Adicionar validação de limites de path em `blame.ts` e `diff-reader.ts`
 4. Validar e sanitizar todos os refs/SHAs antes de passá-los ao git
-5. Investigar o pacote `sql-js@0.1.0` em devDependencies
+5. Remover `sql-js@0.1.0` de devDependencies (possível typosquat, não utilizado no código) e `sql.js` (igualmente não utilizado)
