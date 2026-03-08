@@ -195,9 +195,9 @@ if (!regex.test(change.filePath)) return false;
 "sql.js": "^1.12.0"
 ```
 
-**Descrição:** Há duas dependências de SQL similares: `sql-js` (v0.1.0) e `sql.js` (v1.12.0). O pacote `sql-js@0.1.0` é uma versão muito antiga e potencialmente uma versão diferente/abandonada do pacote legítimo `sql.js`. Ambos estão em `devDependencies`, mas a presença de um pacote com nome quase idêntico em versão muito antiga deve ser investigada para descartar typosquatting.
+**Descrição:** Há duas dependências de SQL similares: `sql-js` (v0.1.0) e `sql.js` (v1.12.0). O pacote `sql-js@0.1.0` é um pacote obscuro (apenas 2 versões publicadas, pelo maintainer `alex030293`) e **não é** a biblioteca SQL.js legítima — é potencialmente um typosquat. Ambos estão em `devDependencies` e, crucialmente, **nenhum dos dois é importado em qualquer arquivo do código-fonte**. O projeto usa `better-sqlite3` para acesso a SQLite, tornando ambas as dependências completamente desnecessárias.
 
-**Recomendação:** Verificar se `sql-js@0.1.0` é realmente necessário e remover se não for. Investigar o conteúdo do pacote.
+**Recomendação:** Remover `sql-js` imediatamente (potencial typosquat). Remover `sql.js` também, pois é igualmente não utilizado. Uma atualização futura de `sql-js` poderia introduzir código malicioso via install scripts.
 
 ---
 
